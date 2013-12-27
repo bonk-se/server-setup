@@ -1,0 +1,49 @@
+server {
+	listen	80;  ## ipv4
+	listen	[::]:80;  ## ipv6
+	root	/www/miken.dyndns.org/public;
+	index	index.php index.html;
+
+	keepalive_timeout 1;
+
+	# Make site accessible from http://localhost/
+	server_name	localhost;
+
+	# Set long expire on static files
+	location ~* \.(?:ico|css|js|gif|jpe?g|png)$ {
+		# Some basic cache-control for static files to be sent to the browser
+		expires max;
+	}
+
+	location / {
+		try_files $uri $uri/ index.php;
+	}
+
+	# Rewrite rules for spotify/
+	location /spotify/ {
+		try_files $uri $uri/ /spotify/index.php?$args;
+	}
+
+	# Rewrite rules for mma
+	location /mma/ {
+		try_files $uri $uri/ /mma/index.php?$args;
+	}
+
+	# Turn off unwanted logging
+	location = /robots.txt    { access_log off; log_not_found off; }
+	location = /favicon.ico   { access_log off; log_not_found off; }
+	location ~ /\.   { access_log off; log_not_found off; deny all; }
+
+	error_page 404 /404.html;
+
+	# pass the PHP scripts to FPM-socket
+	location ~ \.php$ {
+		fastcgi_index  index.php;
+		include  /etc/nginx/fastcgi_params;
+		fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
+		fastcgi_cache  off;
+		if (-e $request_filename) {
+			fastcgi_pass  unix:/var/run/php5-fpm.sock;
+		}
+	}
+}

@@ -1,0 +1,18 @@
+#!/bin/bash
+#
+# Install required packages
+# Copy all required config files
+#
+#
+
+DIR="$( cd -P "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+# Copy config files
+cp -r $DIR/etc/* /etc
+
+# Nginx
+ln -s /etc/nginx/sites-available/miken.dyndns.org /etc/nginx/sites-enabled/test-install
+
+# Samba
+echo "" >> /etc/samba/smb.conf
+echo "include = /etc/samba/miken.conf" >> /etc/samba/smb.conf
