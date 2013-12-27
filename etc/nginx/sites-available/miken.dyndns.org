@@ -19,11 +19,6 @@ server {
 		try_files $uri $uri/ index.php;
 	}
 
-	# Rewrite rules for spotify/
-	location /spotify/ {
-		try_files $uri $uri/ /spotify/index.php?$args;
-	}
-
 	# Rewrite rules for mma
 	location /mma/ {
 		try_files $uri $uri/ /mma/index.php?$args;
