@@ -1,7 +1,7 @@
 server {
 	listen	80;  ## ipv4
 	listen	[::]:80;  ## ipv6
-	root	/www/miken.dyndns.org/public;
+	root	/www/public;
 	index	index.php index.html;
 
 	keepalive_timeout 1;
