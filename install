@@ -11,7 +11,7 @@ DIR="$( cd -P "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 cp -r $DIR/etc/* /etc
 
 # Nginx
-ln -s /etc/nginx/sites-available/miken.dyndns.org /etc/nginx/sites-enabled/test-install
+ln -s /etc/nginx/sites-available/site-01 /etc/nginx/sites-enabled/site-01
 
 # Samba
 echo "" >> /etc/samba/smb.conf
