@@ -7,9 +7,8 @@
 pecl uninstall xdebug memcached
 pear uninstall --alldeps pear.phpunit.de/PHPUnit
 
-
+# Remove packages (except git)
 apt-get remove --purge \
-	git \
 	samba \
 	shorewall shorewall-core \
 	nginx-light \
