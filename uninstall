@@ -5,7 +5,7 @@
 
 # Uninstall PEAR & PECL-extensions
 pecl uninstall xdebug memcached
-pear uninstall --alldeps pear.phpunit.de/PHPUnit
+pear uninstall phpunit/PHPUnit
 
 # Remove packages (except git)
 apt-get remove --purge \

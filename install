@@ -25,10 +25,11 @@ apt-get install -y \
 	memcached libmemcached-dev \
 	transmission transmission-cli transmission-daemon
 
-echo "##################################################\n"
-echo " Packages installed\n"
-echo " Installing PEAR & PECL\n"
-echo "##################################################\n"
+
+echo "#################################################"
+echo " Packages installed"
+echo " Installing PEAR & PECL"
+echo "#################################################"
 
 # Install PEAR & PECL-extensions
 pear config-set auto_discover 1
@@ -38,9 +39,9 @@ pear install --alldeps pear.phpunit.de/PHPUnit
 
 DIR="$( cd -P "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-echo "##################################################\n"
-echo " Copying config files\n"
-echo "##################################################\n"
+echo "#################################################"
+echo " Copying config files"
+echo "#################################################"
 
 # Copy config files
 cp -r $DIR/etc/* /etc
@@ -52,9 +53,17 @@ ln -s /etc/nginx/sites-available/site-01 /etc/nginx/sites-enabled/site-01
 echo "" >> /etc/samba/smb.conf
 echo "include = /etc/samba/miken.conf" >> /etc/samba/smb.conf
 
-# Transmission
+# Reload/restart services
 /etc/init.d/transmission-daemon reload
+/etc/init.d/php5-fpm restart
+/etc/init.d/nginx restart
+/etc/init.d/samba restart
+# /etc/init.d/shorewall restart
 
-echo "##################################################\n"
-echo " Done!\n"
-echo "##################################################\n"
+echo "#################################################"
+echo " Done!"
+echo ""
+echo "              !!  IMPORTANT !!"
+echo " To enable shorewall, you need to modify"
+echo " /etc/default/shorewall and set startup=1"
+echo "#################################################"

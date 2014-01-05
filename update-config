@@ -1,0 +1,28 @@
+#!/bin/bash
+#
+# Update config files
+#
+
+if [ "$(id -u)" != "0" ]; then
+	echo "You need to be root to execute this script"
+	exit 1
+fi
+
+
+DIR="$( cd -P "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+echo "#################################################"
+echo " Updating config files"
+
+# Copy config files
+cp -r $DIR/etc/* /etc
+
+# Reload/restart services
+/etc/init.d/transmission-daemon reload
+/etc/init.d/php5-fpm restart
+/etc/init.d/nginx restart
+/etc/init.d/samba restart
+# /etc/init.d/shorewall restart
+
+echo "#################################################"
+echo " Done!"
