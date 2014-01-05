@@ -18,6 +18,7 @@ apt-get install -y \
 	samba \
 	shorewall shorewall-core \
 	nginx-light \
+	make \
 	php5 php5-dev php5-cli php5-fpm php5-json php-pear php5-curl php5-mysql \
 	mysql-server \
 	memcached libmemcached-dev \
