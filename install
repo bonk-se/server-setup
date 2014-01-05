@@ -5,6 +5,31 @@
 #
 #
 
+if [ "$(id -u)" != "0" ]; then
+	echo "You need to be root to execute this script"
+	exit 1
+fi
+
+
+# Install packages
+apt-get update
+apt-get install -y \
+	git \
+	samba \
+	shorewall shorewall-core \
+	nginx-light \
+	php5 php5-cli php5-fpm php5-json php-pear php5-curl php5-mysql \
+	mysql-server \
+	memcached libmemcached-dev \
+	transmission transmission-cli transmission-daemon \
+	plexmediaserver
+
+# Install PEAR & PECL-extensions
+pear config-set auto_discover 1
+pecl install xdebug memcached
+pear install --alldeps pear.phpunit.de/PHPUnit
+
+
 DIR="$( cd -P "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 # Copy config files

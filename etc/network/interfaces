@@ -1,0 +1,22 @@
+# This file describes the network interfaces available on your system
+# and how to activate them. For more information, see interfaces(5).
+#
+# Originates from git-package server-setup
+# @author miken@bonk.se
+#
+
+# The loopback network interface
+auto lo
+iface lo inet loopback
+
+# External interface (I)
+auto eth0
+allow-hotplug eth0
+iface eth0 inet dhcp
+
+# Internal interface (II)
+auto eth1
+iface eth1 inet static
+	address 192.168.0.1
+	netmask 255.255.255.0
+
