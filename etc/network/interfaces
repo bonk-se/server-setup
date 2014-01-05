@@ -10,13 +10,13 @@ auto lo
 iface lo inet loopback
 
 # External interface (I)
-auto eth0
-allow-hotplug eth0
-iface eth0 inet dhcp
+auto p1p1
+allow-hotplug p1p1
+iface p1p1 inet dhcp
 
 # Internal interface (II)
-auto eth1
-iface eth1 inet static
+auto p1p2
+iface p1p2 inet static
 	address 192.168.0.1
 	netmask 255.255.255.0
 
