@@ -21,8 +21,8 @@ cp -r $DIR/etc/* /etc
 /etc/init.d/transmission-daemon reload
 /etc/init.d/php5-fpm restart
 /etc/init.d/nginx restart
-/etc/init.d/samba restart
-# /etc/init.d/shorewall restart
+/etc/init.d/samba reload
+/etc/init.d/shorewall reload
 
 echo "#################################################"
 echo " Done!"
