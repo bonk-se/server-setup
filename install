@@ -58,7 +58,7 @@ echo "include = /etc/samba/miken.conf" >> /etc/samba/smb.conf
 /etc/init.d/php5-fpm restart
 /etc/init.d/nginx restart
 /etc/init.d/samba restart
-# /etc/init.d/shorewall restart
+/etc/init.d/shorewall restart
 
 echo "#################################################"
 echo " Done!"
