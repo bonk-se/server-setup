@@ -3,7 +3,7 @@
 # Remove all packages installed
 #
 
-apt-get uninstall --purge \
+apt-get remove --purge \
 	git \
 	samba \
 	shorewall shorewall-core \
