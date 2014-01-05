@@ -21,3 +21,6 @@ apt-get remove --purge \
 
 # Clean up left over packages
 apt-get autoremove
+
+# Remove some config files / links
+rm -f /etc/nginx/sites-enabled/site-01

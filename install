@@ -25,6 +25,11 @@ apt-get install -y \
 	memcached libmemcached-dev \
 	transmission transmission-cli transmission-daemon
 
+echo "##################################################\n"
+echo " Packages installed\n"
+echo " Installing PEAR & PECL\n"
+echo "##################################################\n"
+
 # Install PEAR & PECL-extensions
 pear config-set auto_discover 1
 pecl install xdebug memcached
@@ -32,6 +37,10 @@ pear install --alldeps pear.phpunit.de/PHPUnit
 
 
 DIR="$( cd -P "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+echo "##################################################\n"
+echo " Copying config files\n"
+echo "##################################################\n"
 
 # Copy config files
 cp -r $DIR/etc/* /etc
@@ -42,3 +51,10 @@ ln -s /etc/nginx/sites-available/site-01 /etc/nginx/sites-enabled/site-01
 # Samba
 echo "" >> /etc/samba/smb.conf
 echo "include = /etc/samba/miken.conf" >> /etc/samba/smb.conf
+
+# Transmission
+/etc/init.d/transmission-daemon reload
+
+echo "##################################################\n"
+echo " Done!\n"
+echo "##################################################\n"
