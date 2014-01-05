@@ -50,6 +50,8 @@ cp -r $DIR/etc/* /etc
 ln -s /etc/nginx/sites-available/site-01 /etc/nginx/sites-enabled/site-01
 
 # Samba
+# If you run this command multiple times, you need to remove the
+# extra includes created below in smb.conf
 echo "" >> /etc/samba/smb.conf
 echo "include = /etc/samba/miken.conf" >> /etc/samba/smb.conf
 
