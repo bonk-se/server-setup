@@ -19,4 +19,3 @@ auto p1p2
 iface p1p2 inet static
 	address 192.168.0.1
 	netmask 255.255.255.0
-
