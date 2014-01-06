@@ -39,7 +39,7 @@
     "preallocation": 1, 
     "prefetch-enabled": 1, 
     "queue-stalled-enabled": true, 
-    "queue-stalled-minutes": 30, 
+    "queue-stalled-minutes": 29, 
     "ratio-limit": 5, 
     "ratio-limit-enabled": true, 
     "rename-partial-files": true, 

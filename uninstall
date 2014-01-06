@@ -10,6 +10,7 @@ pear uninstall phpunit/PHPUnit
 # Remove packages (except git)
 apt-get remove --purge \
 	samba \
+	isc-dhcp-server \
 	shorewall shorewall-core \
 	nginx-light \
 	make \
