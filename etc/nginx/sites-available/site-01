@@ -1,7 +1,7 @@
 server {
 	listen	80;  ## ipv4
 	listen	[::]:80;  ## ipv6
-	root	/www/public;
+	root	/www/site-01/public;
 	index	index.php index.html;
 
 	keepalive_timeout 1;
