@@ -1,9 +1,12 @@
 # This file describes the network interfaces available on your system
 # and how to activate them. For more information, see interfaces(5).
 #
-# Originates from git-package server-setup
+
+#
+# Config from https://github.com/bonk-se/server-setup
 # @author miken@bonk.se
 #
+
 
 # The loopback network interface
 auto lo

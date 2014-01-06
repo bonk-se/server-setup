@@ -18,11 +18,13 @@ echo " Updating config files"
 cp -r $DIR/etc/* /etc
 
 # Reload/restart services
-/etc/init.d/transmission-daemon reload
-/etc/init.d/php5-fpm restart
-/etc/init.d/nginx restart
-/etc/init.d/samba reload
-/etc/init.d/shorewall reload
+service transmission-daemon reload
+service php5-fpm restart
+service nginx restart
+service samba reload
+service shorewall reload
+service networking restart
+service isc-dhcp-server restart
 
 echo "#################################################"
 echo " Done!"

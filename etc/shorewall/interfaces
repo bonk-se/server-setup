@@ -1,16 +1,13 @@
 #
-# Shorewall version 4.0 - Sample Interfaces File for two-interface configuration.
-# Copyright (C) 2006 by the Shorewall Team
+# Config from https://github.com/bonk-se/server-setup
+# @author miken@bonk.se
 #
-# This library is free software; you can redistribute it and/or
-# modify it under the terms of the GNU Lesser General Public
-# License as published by the Free Software Foundation; either
-# version 2.1 of the License, or (at your option) any later version.
+
 #
 # See the file README.txt for further details.
 #------------------------------------------------------------------------------
 # For information about entries in this file, type "man shorewall-interfaces"
 ###############################################################################
 #ZONE	INTERFACE	BROADCAST	OPTIONS
-loc	eth0		detect		tcpflags,nosmurfs,routefilter,logmartians,routeback
-net	eth1		detect		dhcp,tcpflags,nosmurfs,routefilter,logmartians
+loc	p1p2		detect		tcpflags,nosmurfs,routefilter,logmartians,routeback
+net	p1p1		detect		dhcp,tcpflags,nosmurfs,routefilter,logmartians

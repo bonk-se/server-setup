@@ -1,3 +1,8 @@
+#
+# Config from https://github.com/bonk-se/server-setup
+# @author miken@bonk.se
+#
+
 server {
 	listen	80;  ## ipv4
 	listen	[::]:80;  ## ipv6

@@ -1,4 +1,9 @@
 #
+# Config from https://github.com/bonk-se/server-setup
+# @author miken@bonk.se
+#
+
+#
 # Local modifications by miken @ 2010-04-06
 # - Force MySQL to use UTF-8
 # - Tuned query cache
