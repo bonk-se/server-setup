@@ -62,13 +62,13 @@ echo "" >> /etc/samba/smb.conf
 echo "include = /etc/samba/miken.conf" >> /etc/samba/smb.conf
 
 # Reload/restart services
-service transmission-daemon restart
 service php5-fpm restart
 service nginx restart
 service samba restart
-service shorewall restart
 service networking restart
 service isc-dhcp-server restart
+service shorewall restart
+service transmission-daemon restart
 
 echo "#################################################"
 echo " Done!"
