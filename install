@@ -50,8 +50,10 @@ cp -r $DIR/etc/* /etc
 # Set correct owner of config files
 chown debian-transmission:debian-transmission /etc/transmission-daemon/settings.json
 
-# Nginx
+# Create symlinks required
 ln -s /etc/nginx/sites-available/site-01 /etc/nginx/sites-enabled/site-01
+ln -s /etc/php5/conf.d/miken.ini /etc/php5/fpm/conf.d/miken.ini
+ln -s /etc/php5/conf.d/miken.ini /etc/php5/cli/conf.d/miken.ini
 
 # Samba
 # If you run this command multiple times, you need to remove the
