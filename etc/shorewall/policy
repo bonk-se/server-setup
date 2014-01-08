@@ -9,8 +9,8 @@
 ###############################################################################
 #SOURCE		DEST		POLICY		LOG LEVEL	LIMIT:BURST
 
+loc		net		ACCEPT
 net		all		DROP		info
-loc		all		ACCEPT
-fw		all		ACCEPT
+$FW		all		ACCEPT
 # THE FOLLOWING POLICY MUST BE LAST
 all		all		REJECT		info
