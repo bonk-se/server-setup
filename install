@@ -34,7 +34,9 @@ echo "#################################################"
 
 # Install PEAR & PECL-extensions
 pear config-set auto_discover 1
-pecl install xdebug memcached
+pecl install xdebug
+# Version 2.1.0 isn't working right now :(
+pecl install -f --alldeps memcached-2.0.0
 pear install --alldeps pear.phpunit.de/PHPUnit
 
 
@@ -46,6 +48,10 @@ echo "#################################################"
 
 # Copy config files
 cp -r $DIR/etc/* /etc
+
+# Enable PECL/PEAR mods
+/usr/sbin/php5enmod memcached
+/usr/sbin/php5enmod xdebug
 
 # Set correct owner of config files
 chown debian-transmission:debian-transmission /etc/transmission-daemon/settings.json
