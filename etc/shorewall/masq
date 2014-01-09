@@ -2,10 +2,13 @@
 # Config from https://github.com/bonk-se/server-setup
 # @author miken@bonk.se
 #
+# !! NOTE !!
+# It needs to be the NET-interface that is given here, not the local.
+# (spent a few hours debugging this...)
 
-# See the file README.txt for further details.
 #------------------------------------------------------------------------------
 # For information about entries in this file, type "man shorewall-masq"
-###############################################################################
-#INTERFACE		SOURCE		ADDRESS		PROTO	PORT(S)	IPSEC	MARK
-p1p2			192.168.0.0/16
+################################################################################################################
+#INTERFACE:DEST		SOURCE		ADDRESS		PROTO	PORT(S)	IPSEC	MARK	USER/	SWITCH	ORIGINAL
+#											GROUP		DEST
+p1p1			192.168.0.0/16

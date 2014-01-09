@@ -3,7 +3,6 @@
 # @author miken@bonk.se
 #
 
-# See the file README.txt for further details.
 #------------------------------------------------------------------------------
 # For information about entries in this file, type "man shorewall-rules"
 ######################################################################################################################################################################################
@@ -21,7 +20,7 @@ Invalid(DROP)	net		all
 #	Accept DNS connections from the firewall to the network
 #
 DNS(ACCEPT)	loc		net
-DNS(ACCEPT)	fw		net
+DNS(ACCEPT)	$FW		net
 #
 #	Allow Ping from the local network
 #

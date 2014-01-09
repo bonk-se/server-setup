@@ -3,13 +3,11 @@
 # @author miken@bonk.se
 #
 
-#
-# See the file README.txt for further details.
 #------------------------------------------------------------------------------
 # For information about entries in this file, type "man shorewall-interfaces"
 ###############################################################################
 ?FORMAT 2
 ###############################################################################
 #ZONE	INTERFACE	OPTIONS
-net	p1p1		dhcp,tcpflags,nosmurfs,routefilter,logmartians
-loc	p1p2		tcpflags,nosmurfs,routefilter,logmartians,routeback
+net     p1p1            dhcp,tcpflags,nosmurfs,routefilter,logmartians,sourceroute=0
+loc     p1p2            tcpflags,nosmurfs,routefilter,logmartians

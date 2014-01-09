@@ -3,14 +3,13 @@
 # @author miken@bonk.se
 #
 
-# See the file README.txt for further details.
 #------------------------------------------------------------------------------
 # For information about entries in this file, type "man shorewall-policy"
 ###############################################################################
 #SOURCE		DEST		POLICY		LOG LEVEL	LIMIT:BURST
 
 loc		net		ACCEPT
-net		all		DROP		info
 $FW		all		ACCEPT
+net		all		DROP		info
 # THE FOLLOWING POLICY MUST BE LAST
 all		all		REJECT		info
