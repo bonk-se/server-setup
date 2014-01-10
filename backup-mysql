@@ -1,0 +1,23 @@
+#!/bin/bash
+#
+# Take a backup of the MySQL database
+#
+
+#if [ "$(id -u)" != "0" ]; then
+#	echo "You need to be root to execute this script"
+#	exit 1
+#fi
+
+# Current date for adding to filename
+now=$(date +"%Y_%m_%d")
+
+# Set filenames for dumps
+basedir="/tmp/"
+file_structure=$basedir"db-structure_"$now".sql"
+file_data=$basedir"db-data_"$now".sql.gz"
+
+# Export all create-statements
+mysqldump -u root -p --all-databases --no-data --skip-quote-names --opt  > $file_structure
+
+# Export all data
+mysqldump -u root -p --all-databases --no-create-db --no-create-info --opt | gzip -9 > $file_data
