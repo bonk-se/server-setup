@@ -9,7 +9,7 @@
 #fi
 
 # Current date for adding to filename
-now=$(date +"%Y_%m_%d")
+now=$(date +"%Y-%m-%d")
 
 # Set filenames for dumps
 basedir="/tmp/"
