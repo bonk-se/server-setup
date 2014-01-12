@@ -54,6 +54,7 @@ ACCEPT		net		fw		tcp	9091
 # SAMBA
 SMB(ACCEPT)	net:192.168.1.0/24	fw
 SMB(ACCEPT)	fw		net
+SMB(ACCEPT)	loc		fw
 # Plex Media Server
 ACCEPT		net		fw		tcp	32400
 ACCEPT		loc		fw		tcp	32400
