@@ -14,14 +14,12 @@ now=$(date +"%Y-%m-%d")
 # Set filenames for dumps
 basedir="/tmp/"
 file_structure=$basedir"db-structure_"$now".sql"
-file_data=$basedir"db-data_"
+file_data=$basedir"db-data_"$now".sql.gz"
 
 # Export all create-statements
 mysqldump -u root -p --all-databases --no-data --skip-quote-names --opt  > $file_structure
 
 # Export all data
-mysqldump -u root -p --no-create-db --no-create-info --opt clickTrackr | gzip -9 > $file_data"clickTrackr_"$now".sql.gz"
-mysqldump -u root -p --no-create-db --no-create-info --opt ftpusers | gzip -9 > $file_data"ftpusers_"$now".sql.gz"
-mysqldump -u root -p --no-create-db --no-create-info --opt mma | gzip -9 > $file_data"mma_"$now".sql.gz"
-mysqldump -u root -p --no-create-db --no-create-info --opt systemHealth | gzip -9 > $file_data"systemHealth_"$now".sql.gz"
-mysqldump -u root -p --no-create-db --no-create-info --opt mysql | gzip -9 > $file_data"mysql_"$now".sql.gz"
+mysqldump -u root -p --no-create-db --no-create-info --opt \
+	--databases clickTrackr ftpusers mma systemHealth phpunit mysql \
+	| gzip -9 > $file_data
