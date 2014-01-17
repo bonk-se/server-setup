@@ -20,7 +20,7 @@ apt-get install -y \
 	shorewall shorewall-core \
 	nginx-light \
 	make \
-	php5 php-pear php5-cli php5-common php5-curl \
+	php5 php-pear php5-cli php5-common php5-curl php5-mcrypt \
 	php5-dev php5-fpm php5-json php5-mysql php5-readline \
 	mysql-server \
 	memcached libmemcached-dev \
@@ -60,6 +60,9 @@ chown debian-transmission:debian-transmission /etc/transmission-daemon/settings.
 ln -s /etc/nginx/sites-available/site-01 /etc/nginx/sites-enabled/site-01
 ln -s /etc/php5/conf.d/miken.ini /etc/php5/fpm/conf.d/miken.ini
 ln -s /etc/php5/conf.d/miken.ini /etc/php5/cli/conf.d/miken.ini
+# Seems like mcrypt isn't enabled by default
+ln -s /etc/php5/conf.d/mcrypt.ini /etc/php5/fpm/conf.d/20-mcrypt.ini
+ln -s /etc/php5/conf.d/mcrypt.ini /etc/php5/cli/conf.d/20-mcrypt.ini
 
 # Samba
 # If you run this command multiple times, you need to remove the
