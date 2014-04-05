@@ -25,3 +25,5 @@ apt-get autoremove
 
 # Remove some config files / links
 rm -f /etc/nginx/sites-enabled/site-01
+
+echo "Uninstall completed!"
