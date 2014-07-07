@@ -40,7 +40,7 @@ CREATE TABLE users (
  *
  * uid and gid should match real users if you want proper file owners.
  */
-INSERT INTO users SET userid = "foo", passwd = PASSWORD('bar'), uid = 1000, gid = 1001;
+#INSERT INTO users SET userid = "foo", passwd = PASSWORD('bar'), uid = 1000, gid = 1001;
 
 DROP TABLE IF EXISTS groups;
 CREATE TABLE groups (
@@ -48,9 +48,9 @@ CREATE TABLE groups (
   gid smallint(6) NOT NULL default '1001',
   members varchar(16) NOT NULL default '',
   KEY groupname (groupname)
-) TYPE=MyISAM COMMENT='ProFTP group table';
+) ENGINE=MyISAM COMMENT='ProFTP group table';
 
 /**
  * This group should be created in the system as well
  */
-INSERT INTO groups SET groupname = 'ftpusers', 1001, 'ftpusers';
+INSERT INTO groups SET groupname = 'ftpusers', gid = 1001, members = 'ftpusers';
