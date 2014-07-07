@@ -19,8 +19,7 @@ FLUSH PRIVILEGES;
 
 USE ftpusers;
 
-DROP TABLE IF EXISTS users;
-CREATE TABLE users (
+CREATE TABLE IF NOT EXISTS users (
   id int(10) unsigned NOT NULL auto_increment,
   userid varchar(32) NOT NULL default '',
   passwd varchar(50) NOT NULL default '',
@@ -42,8 +41,7 @@ CREATE TABLE users (
  */
 #INSERT INTO users SET userid = "foo", passwd = PASSWORD('bar'), uid = 1000, gid = 1001;
 
-DROP TABLE IF EXISTS groups;
-CREATE TABLE groups (
+CREATE TABLE IF NOT EXISTS  groups (
   groupname varchar(16) NOT NULL default '',
   gid smallint(6) NOT NULL default '1001',
   members varchar(16) NOT NULL default '',
@@ -53,4 +51,4 @@ CREATE TABLE groups (
 /**
  * This group should be created in the system as well
  */
-INSERT INTO groups SET groupname = 'ftpusers', gid = 1001, members = 'ftpusers';
+INSERT IGNORE INTO groups SET groupname = 'ftpusers', gid = 1001, members = 'ftpusers';
