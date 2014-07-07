@@ -50,5 +50,6 @@ CREATE TABLE IF NOT EXISTS  groups (
 
 /**
  * This group should be created in the system as well
+ * groupadd -g 1001 ftpusers
  */
 INSERT IGNORE INTO groups SET groupname = 'ftpusers', gid = 1001, members = 'ftpusers';
