@@ -4,6 +4,19 @@
  * @author miken@bonk.se
  */
 
+
+CREATE DATABASE IF NOT EXISTS proftpd DEFAULT CHARACTER SET utf8;
+
+USE mysql;
+
+INSERT IGNORE INTO db VALUES
+('localhost','proftpd','proftpd_user','Y','Y','Y','Y','Y','Y','N','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','N','N');
+
+INSERT IGNORE INTO user VALUES
+('localhost','proftpd_user','*EAB00B73E20B960DD569E91D9E5C2BE9264BCB2C','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','','','','',0,0,0,0,'',NULL);
+
+FLUSH PRIVILEGES;
+
 USE ftpusers;
 
 DROP TABLE IF EXISTS users;
