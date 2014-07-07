@@ -17,7 +17,7 @@ INSERT IGNORE INTO user VALUES
 
 FLUSH PRIVILEGES;
 
-USE ftpusers;
+USE proftpd;
 
 CREATE TABLE IF NOT EXISTS users (
   id int(10) unsigned NOT NULL auto_increment,
