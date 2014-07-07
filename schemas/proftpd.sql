@@ -51,5 +51,6 @@ CREATE TABLE IF NOT EXISTS  groups (
 /**
  * This group should be created in the system as well
  * groupadd -g 1001 ftpusers
+ * useradd -g ftpusers -u 5500 -M -r -s /bin/false ftpuser
  */
 INSERT IGNORE INTO groups SET groupname = 'ftpusers', gid = 1001, members = 'ftpusers';
