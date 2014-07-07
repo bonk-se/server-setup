@@ -25,6 +25,7 @@ service networking restart
 service isc-dhcp-server restart
 service shorewall restart
 service transmission-daemon restart
+service proftpd restart
 
 echo "#################################################"
 echo " Done!"
