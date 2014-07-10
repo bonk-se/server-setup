@@ -18,7 +18,9 @@ apt-get remove --purge \
 	php5-dev php5-fpm php5-json php5-mysql php5-readline \
 	mysql-server \
 	memcached libmemcached-dev \
-	transmission transmission-cli transmission-daemon
+	transmission transmission-cli transmission-daemon \
+	gettext proftpd-basic proftpd-mod-mysql
+
 
 # Clean up left over packages
 apt-get autoremove

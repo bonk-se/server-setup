@@ -25,7 +25,7 @@ apt-get install -y \
 	mysql-server \
 	memcached libmemcached-dev \
 	transmission transmission-cli transmission-daemon \
-	gettext proftpd-mod-mysql
+	gettext proftpd-basic proftpd-mod-mysql
 
 
 echo "#################################################"
