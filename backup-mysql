@@ -3,11 +3,6 @@
 # Take a backup of the MySQL database
 #
 
-#if [ "$(id -u)" != "0" ]; then
-#	echo "You need to be root to execute this script"
-#	exit 1
-#fi
-
 # Current date for adding to filename
 now=$(date +"%Y-%m-%d")
 
@@ -17,12 +12,14 @@ file_structure=$basedir"db-structure_"$now".sql"
 file_data=$basedir"db-data_"$now".sql.gz"
 
 # Prompt for mysql password
-echo "Enter the mysql password"
+echo "Enter the mysql password and press [ENTER]"
 read -s password
 
+echo "Dumping structure..."
 # Export all create-statements
 mysqldump -u root -p$password --all-databases --no-data --skip-quote-names --opt  > $file_structure
 
+echo "Dumping data..."
 # Export all data
 # Gzip level 9 means best compression, might be slow for big chunks of data.
 mysqldump -u root -p$password --no-create-db --no-create-info --opt \
