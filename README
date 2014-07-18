@@ -4,16 +4,15 @@
 
 Backup for configurations and lists of packages required.
 
-Installs:
-- Git
+Installs & configures:
 - Web server (Nginx, PHP5, memcached, MySQL)
-- Shorewall
+- Shorewall firewall & DHCP
 - Transmission
+- ProFTPd
 - PECL & PEAR packages
-
-Configs:
-- MySQL
-- Nginx
-- PHP5
 - Samba
-- Shorewall
+
+Requirements:
+- Ubuntu server (might still work on Debian)
+- Dual network interfaces
+- Git
