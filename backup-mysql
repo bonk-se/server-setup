@@ -16,10 +16,15 @@ basedir="/tmp/"
 file_structure=$basedir"db-structure_"$now".sql"
 file_data=$basedir"db-data_"$now".sql.gz"
 
+# Prompt for mysql password
+echo "Enter the mysql password"
+read -s password
+
 # Export all create-statements
-mysqldump -u root -p --all-databases --no-data --skip-quote-names --opt  > $file_structure
+mysqldump -u root -p$password --all-databases --no-data --skip-quote-names --opt  > $file_structure
 
 # Export all data
-mysqldump -u root -p --no-create-db --no-create-info --opt \
+# Gzip level 9 means best compression, might be slow for big chunks of data.
+mysqldump -u root -p$password --no-create-db --no-create-info --opt \
 	--databases clickTrackr ftpusers mma systemHealth phpunit mysql \
 	| gzip -9 > $file_data
