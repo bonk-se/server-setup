@@ -14,8 +14,8 @@ apt-get remove --purge \
 	shorewall shorewall-core \
 	nginx-light \
 	make \
-	php5 php-pear php5-cli php5-common php5-curl \
-	php5-dev php5-fpm php5-json php5-mysql php5-readline \
+	php5 php-pear php5-cli php5-common php5-curl php5-mcrypt \
+	php5-dev php5-fpm php5-json php5-mysql php5-readline php5-intl \
 	mysql-server \
 	memcached libmemcached-dev \
 	transmission transmission-cli transmission-daemon \
