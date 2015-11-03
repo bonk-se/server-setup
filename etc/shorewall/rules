@@ -44,6 +44,7 @@ ACCEPT		loc		fw		tcp	27
 ACCEPT		net		fw		tcp	27
 #-- Web-server
 ACCEPT		net		fw		tcp	80
+ACCEPT		net		fw		tcp	443
 #-- Torrent
 ACCEPT		net		fw		tcp	10001:11001
 #-- FTP
