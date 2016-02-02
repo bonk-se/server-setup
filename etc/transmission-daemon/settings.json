@@ -30,7 +30,7 @@
     "peer-limit-global": 300, 
     "peer-limit-per-torrent": 60, 
     "peer-port": 10101, 
-    "peer-port-random-high": 10100, 
+    "peer-port-random-high": 10901,
     "peer-port-random-low": 10001, 
     "peer-port-random-on-start": false, 
     "peer-socket-tos": "default", 

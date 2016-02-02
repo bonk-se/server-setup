@@ -46,7 +46,7 @@ ACCEPT		net		fw		tcp	27
 ACCEPT		net		fw		tcp	80
 ACCEPT		net		fw		tcp	443
 #-- Torrent
-ACCEPT		net		fw		tcp	10001:10101
+ACCEPT		net		fw		tcp	10001:10901
 #-- FTP
 ACCEPT		net		fw		tcp	20:21
 ACCEPT		net		fw		tcp	49101:49999
