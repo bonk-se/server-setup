@@ -53,11 +53,10 @@ ACCEPT		net		fw		tcp	49101:49999
 # Transmission
 ACCEPT		net		fw		tcp	9091
 # SAMBA
-SMB(ACCEPT)	net:178.78.235.163	fw
-SMB(ACCEPT)	fw		net
-SMB(ACCEPT)	loc		fw
+SMB(ACCEPT)	loc:192.168.1.0/24	fw
+SMB(ACCEPT)	$FW		loc
 # Plex Media Server
-ACCEPT		net		fw		tcp	32400
-ACCEPT		loc		fw		tcp	32400
+#ACCEPT		net		fw		tcp	32400
+#ACCEPT		loc		fw		tcp	32400
 # Minecraft server
 ACCEPT		net		fw		tcp	25565
