@@ -1,0 +1,49 @@
+#
+# @author miken@bonk.se
+#
+
+server {
+	listen	80;  ## ipv4
+	listen	[::]:80;  ## ipv6
+	root	/www/globaltalent.se/public/www;
+	index	index.php index.html;
+	access_log	/var/log/nginx/gt_access.log;
+	error_log	/var/log/nginx/gt_error.log;
+
+	keepalive_timeout 1;
+
+	server_name	globaltalent.se;
+
+	# Set long expire on static files
+	location ~* \.(?:ico|css|js|gif|jpe?g|png|woff)$ {
+		# Some basic cache-control for static files to be sent to the browser
+		expires max;
+	}
+
+	location / {
+		rewrite ^/team/(\d+)/(.*)$  /team/$2/index.php?rewrite_id=$1&$args  last;
+		try_files $uri $uri/ /404.php?q=$uri&$args;
+	}
+
+	# Turn off unwanted logging
+	location = /robots.txt    { access_log off; log_not_found off; }
+	location = /favicon.ico   { access_log off; log_not_found off; }
+
+	# this prevents hidden files (beginning with a period) from being served
+	location ~ /\.   { access_log off; log_not_found off; deny all; }
+
+	error_page 404 /error/404.html;
+
+	# error_log /var/log/nginx/debug.log debug;
+
+	# pass the PHP scripts to FPM-socket
+	location ~ \.php$ {
+		fastcgi_index  index.php;
+		include  /etc/nginx/fastcgi_params;
+		fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
+		fastcgi_cache  off;
+		if (-e $request_filename) {
+			fastcgi_pass  unix:/var/run/php5-fpm.sock;
+		}
+	}
+}

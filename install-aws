@@ -1,0 +1,63 @@
+#!/bin/bash
+#
+# Install required packages
+# Copy all required config files
+#
+#
+
+# Install packages
+sudo apt-get update
+sudo apt-get install -y \
+	nginx-light \
+	make \
+	php5 php-pear php5-cli php5-common php5-curl php5-mcrypt \
+	php5-dev php5-fpm php5-json php5-mysql php5-readline php5-intl \
+	mysql-server \
+	memcached libmemcached-dev \
+	gettext
+
+
+echo "#################################################"
+echo " Packages installed"
+echo " Installing PEAR & PECL"
+echo "#################################################"
+
+# Install PEAR & PECL-extensions
+pear config-set auto_discover 1
+pecl install xdebug
+# Version 2.1.0 isn't working right now :(
+pecl install -f --alldeps memcached-2.0.0
+pear install --alldeps pear.phpunit.de/PHPUnit
+
+
+DIR="$( cd -P "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+echo "#################################################"
+echo " Copying config files"
+echo "#################################################"
+
+# Copy config files
+cp -r $DIR/etc/mysql/* /etc/mysql
+cp -r $DIR/etc/nginx/* /etc/nginx
+cp -r $DIR/etc/php5/* /etc/php5
+
+# Enable PECL/PEAR mods
+/usr/sbin/php5enmod memcached
+/usr/sbin/php5enmod xdebug
+
+# Create symlinks required
+ln -s /etc/nginx/sites-available/globaltalent.se /etc/nginx/sites-enabled/globaltalent.se
+ln -s /etc/php5/conf.d/miken.ini /etc/php5/fpm/conf.d/miken.ini
+ln -s /etc/php5/conf.d/miken.ini /etc/php5/cli/conf.d/miken.ini
+# Seems like mcrypt isn't enabled by default
+ln -s /etc/php5/conf.d/mcrypt.ini /etc/php5/fpm/conf.d/20-mcrypt.ini
+ln -s /etc/php5/conf.d/mcrypt.ini /etc/php5/cli/conf.d/20-mcrypt.ini
+
+# Reload/restart services
+service php5-fpm restart
+service nginx restart
+service mysql restart
+
+echo "#################################################"
+echo " Done!"
+echo "#################################################"
