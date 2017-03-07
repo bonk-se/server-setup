@@ -20,4 +20,6 @@ iface p1p1 inet dhcp
 # Internal interface (II) - Not gateway
 auto p1p2
 allow-hotplug p1p2
-iface p1p2 inet dhcp
+iface p1p2 inet static
+	address 192.168.1.17
+	netmask 255.255.255.0
