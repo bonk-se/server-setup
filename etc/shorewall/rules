@@ -46,17 +46,17 @@ ACCEPT		net		fw		tcp	27
 ACCEPT		net		fw		tcp	80
 ACCEPT		net		fw		tcp	443
 #-- Torrent
-ACCEPT		net		fw		tcp	10001:10901
+ACCEPT		net		fw		tcp	10001:11901
 #-- FTP
 ACCEPT		net		fw		tcp	20:21
 ACCEPT		net		fw		tcp	49101:49999
 # Transmission
 ACCEPT		net		fw		tcp	9091
 # SAMBA
-SMB(ACCEPT)	loc:192.168.1.0/24	fw
+SMB(ACCEPT)	loc:192.168.1.1/24	fw
 SMB(ACCEPT)	$FW		loc
 # Plex Media Server
-#ACCEPT		net		fw		tcp	32400
-#ACCEPT		loc		fw		tcp	32400
+ACCEPT		net		fw		tcp	32400
+ACCEPT		loc		fw		tcp	32400
 # Minecraft server
 ACCEPT		net		fw		tcp	25565
