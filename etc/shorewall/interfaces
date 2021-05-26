@@ -9,5 +9,5 @@
 ?FORMAT 2
 ###############################################################################
 #ZONE	INTERFACE	OPTIONS
-net     p1p1            dhcp,tcpflags,nosmurfs,routefilter,logmartians,sourceroute=0
-loc     p1p2            tcpflags,nosmurfs,routefilter,logmartians
+net     eth0            dhcp,tcpflags,nosmurfs,routefilter,logmartians,sourceroute=0
+#loc     p1p2            tcpflags,nosmurfs,routefilter,logmartians
